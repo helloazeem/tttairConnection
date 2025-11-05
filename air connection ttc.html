@@ -22,6 +22,13 @@
             --bg-light: #f9fafb;
             --white: #ffffff;
             --success: #10b981;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -193,6 +200,8 @@
             font-weight: 800;
             margin-bottom: 20px;
             animation: fadeInUp 0.8s ease-out;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            letter-spacing: -0.5px;
         }
 
         .hero p {
@@ -200,6 +209,9 @@
             margin-bottom: 40px;
             opacity: 0.95;
             animation: fadeInUp 0.8s ease-out 0.2s both;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-buttons {
@@ -229,18 +241,21 @@
 
         .btn-primary:hover {
             background: #d97706;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.4);
         }
 
         .btn-secondary {
             background: var(--white);
             color: var(--primary-color);
+            border: 2px solid transparent;
         }
 
         .btn-secondary:hover {
-            background: var(--bg-light);
-            transform: translateY(-2px);
+            background: rgba(255,255,255,0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+            border-color: var(--white);
         }
 
         /* Features Section */
@@ -518,6 +533,243 @@
             color: #9ca3af;
         }
 
+        /* Process Steps Section */
+        .process {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            padding: 30px 20px;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            right: -15%;
+            width: 30%;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-color), transparent);
+            z-index: 0;
+        }
+
+        .process-step:last-child::before {
+            display: none;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .process-step p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .testimonial-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 50px;
+            color: var(--primary-color);
+            opacity: 0.1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 25px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-rating {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 18px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            padding: 18px 35px;
+            background: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Scroll Reveal Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -527,6 +779,37 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
 
@@ -641,47 +924,47 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header scroll-reveal">
                 <h2>Why Choose Air Connection</h2>
                 <p>We provide comprehensive training and support for your international career</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card scroll-reveal">
                     <div class="feature-icon">
                         <i class="fas fa-certificate"></i>
                     </div>
                     <h3>Certified Training</h3>
                     <p>Government approved training programs with internationally recognized certifications</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card scroll-reveal">
                     <div class="feature-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Expert Instructors</h3>
                     <p>Learn from industry professionals with real-world international work experience</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card scroll-reveal">
                     <div class="feature-icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <h3>Job Placement</h3>
                     <p>Direct connections with employers and assistance in securing overseas positions</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card scroll-reveal">
                     <div class="feature-icon">
                         <i class="fas fa-language"></i>
                     </div>
                     <h3>Language Support</h3>
                     <p>Basic language training included to help you communicate in your destination country</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card scroll-reveal">
                     <div class="feature-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h3>Interview Preparation</h3>
                     <p>Mock interviews and guidance to help you succeed in employer interviews</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card scroll-reveal">
                     <div class="feature-icon">
                         <i class="fas fa-headset"></i>
                     </div>
@@ -695,12 +978,12 @@
     <!-- Featured Courses -->
     <section class="courses">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header scroll-reveal">
                 <h2>Popular Training Courses</h2>
                 <p>Choose from our wide range of specialized training programs</p>
             </div>
             <div class="courses-grid">
-                <div class="course-card">
+                <div class="course-card scroll-reveal">
                     <div class="course-image">
                         <i class="fas fa-wrench"></i>
                     </div>
@@ -717,7 +1000,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="course-card">
+                <div class="course-card scroll-reveal">
                     <div class="course-image">
                         <i class="fas fa-bolt"></i>
                     </div>
@@ -734,7 +1017,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="course-card">
+                <div class="course-card scroll-reveal">
                     <div class="course-image">
                         <i class="fas fa-hammer"></i>
                     </div>
@@ -750,6 +1033,38 @@
                             <a href="courses.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Learn More</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Steps Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2>How to Get Started</h2>
+                <p>Follow these simple steps to begin your journey abroad</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step scroll-reveal">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Course</h3>
+                    <p>Select from our range of specialized training programs based on your skills and career goals</p>
+                </div>
+                <div class="process-step scroll-reveal">
+                    <div class="step-number">2</div>
+                    <h3>Submit Application</h3>
+                    <p>Fill out the application form with your details and required documents</p>
+                </div>
+                <div class="process-step scroll-reveal">
+                    <div class="step-number">3</div>
+                    <h3>Complete Training</h3>
+                    <p>Attend comprehensive training sessions and earn your certification</p>
+                </div>
+                <div class="process-step scroll-reveal">
+                    <div class="step-number">4</div>
+                    <h3>Get Placement</h3>
+                    <p>We help you secure job opportunities with our international partners</p>
                 </div>
             </div>
         </div>
@@ -779,6 +1094,75 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2>What Our Students Say</h2>
+                <p>Success stories from those who trained with us</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card scroll-reveal">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Air Connection provided excellent training and helped me secure a job in Dubai. The instructors were professional and supportive throughout the entire process."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Mohammad Rahman</h4>
+                            <p>Electrician - Dubai, UAE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card scroll-reveal">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Thanks to Air Connection, I'm now working in Saudi Arabia with a good salary. The training was thorough and they guided me every step of the way."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">KA</div>
+                        <div class="author-info">
+                            <h4>Kamal Ahmed</h4>
+                            <p>Industrial Mechanic - Saudi Arabia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card scroll-reveal">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Best training institute! They not only taught me technical skills but also helped with interview preparation. Highly recommended!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SA</div>
+                        <div class="author-info">
+                            <h4>Sohel Akter</h4>
+                            <p>Construction Worker - Qatar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
@@ -787,6 +1171,20 @@
             <a href="apply.html" class="btn btn-primary">
                 Apply Now <i class="fas fa-arrow-right"></i>
             </a>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for the latest courses and job opportunities</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i> Subscribe
+                </button>
+            </form>
         </div>
     </section>
 
@@ -853,6 +1251,84 @@
                 }
             });
         });
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll reveal elements
+        document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add stagger effect to feature cards
+        document.querySelectorAll('.feature-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Add stagger effect to course cards
+        document.querySelectorAll('.course-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Newsletter Form
+        const newsletterForm = document.getElementById('newsletterForm');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = newsletterForm.querySelector('input[type="email"]').value;
+                alert(`Thank you for subscribing with ${email}! We'll keep you updated.`);
+                newsletterForm.reset();
+            });
+        }
+
+        // Add counter animation for stats
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.textContent.includes('+') ? '+' : '%');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '%');
+                }
+            }, 20);
+        };
+
+        // Animate stats when they come into view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statItems = entry.target.querySelectorAll('.stat-item h3');
+                    statItems.forEach(item => {
+                        const text = item.textContent;
+                        const number = parseInt(text);
+                        if (!isNaN(number)) {
+                            item.textContent = '0';
+                            animateCounter(item, number);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
     </script>
 </body>
 </html>
